@@ -24,7 +24,7 @@ test:
 
 production:
   adapter: postgresql
-  database: production
+  database: dc843e9v5416v3
   pool: 5
   username: ttxnnuwuzjdekv
   password: gThU0s6GkW-gNpGLPN3BnmNHLU

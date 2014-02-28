@@ -26,6 +26,6 @@ production:
   adapter: postgresql
   database: production
   pool: 5
-  username: production
-  password: ColdWar44
+  username: ttxnnuwuzjdekv
+  password: gThU0s6GkW-gNpGLPN3BnmNHLU
   timeout: 5000
