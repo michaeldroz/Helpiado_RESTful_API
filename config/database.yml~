@@ -24,8 +24,6 @@ test:
 
 production:
   adapter: postgresql
-  database: production
+  database: db/production.helpiado
   pool: 5
-  username: production
-  password: ColdWar44
   timeout: 5000
