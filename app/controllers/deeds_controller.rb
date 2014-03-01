@@ -18,7 +18,7 @@ class DeedsController < ApplicationController
   # POST /deeds
   # POST /deeds.json
   def create
-    @deed = Deed.new(params[:deed])
+    @deed = Deed.create(deed_params)
 
     if @deed.save
       render json: @deed, status: :created, location: @deed
@@ -47,4 +47,10 @@ class DeedsController < ApplicationController
 
     head :no_content
   end
+
+private
+    def deed_params
+	params.permit(:person_id, :descripton, :votes, :recurring)
+   end
+
 end
