@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="4011206597">
+    <data-source source="LOCAL" name="Rails helpiado: development" uuid="37e348dc-48e7-4693-bd82-f4f01ed0d374">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:development</jdbc-url>
+      <user-name>development</user-name>
+      <user-password>dfe9dfc5dfc6dfcedffddfcbdfd8df9edf9e</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails helpiado: test" uuid="26b0ca02-9b3c-4984-904d-abace9a1c129">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:test</jdbc-url>
+      <user-name>development</user-name>
+      <user-password>dfe9dfc5dfc6dfcedffddfcbdfd8df9edf9e</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails helpiado: production" uuid="3f290302-dd9a-4c85-82d8-e2407348b56b">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:dc843e9v5416v3</jdbc-url>
+      <user-name>ttxnnuwuzjdekv</user-name>
+      <user-password>dfcddffedfc2dfffdf9adfd9df9cdfeddfc1dffddf87dfcddfe4dfdadfeddfe6dffadfe4df99dfe8dfc4dfc7dfe4dfe2dfe6dfff</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
