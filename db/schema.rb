@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226032706) do
+ActiveRecord::Schema.define(version: 20140301200611) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "deeds", force: true do |t|
     t.datetime "created_at"
@@ -20,7 +23,10 @@ ActiveRecord::Schema.define(version: 20140226032706) do
     t.string   "descripton"
     t.integer  "votes"
     t.boolean  "recurring"
+    t.integer  "person_id"
   end
+
+  add_index "deeds", ["person_id"], name: "index_deeds_on_person_id", using: :btree
 
   create_table "people", force: true do |t|
     t.datetime "created_at"
