@@ -18,8 +18,7 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    @person = Person.new(params[:person])
-
+    @person = Person.create(person_params)
     if @person.save
       render json: @person, status: :created, location: @person
     else
@@ -47,4 +46,9 @@ class PeopleController < ApplicationController
 
     head :no_content
   end
+
+private
+def person_params
+	params.permit(:first_name, :last_name, :email_address, :password)
+end
 end
