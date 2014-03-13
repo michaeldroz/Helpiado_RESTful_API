@@ -1,0 +1,10 @@
+                   List of relations
+ Schema |       Name        |   Type   |     Owner      
+--------+-------------------+----------+----------------
+ public | deeds             | table    | bvrwyahzvafrmx
+ public | deeds_id_seq      | sequence | bvrwyahzvafrmx
+ public | people            | table    | bvrwyahzvafrmx
+ public | people_id_seq     | sequence | bvrwyahzvafrmx
+ public | schema_migrations | table    | bvrwyahzvafrmx
+(5 rows)
+
