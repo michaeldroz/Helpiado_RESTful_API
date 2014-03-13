@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
   private
  
   def validate_apigee
-    if params[:apigee_key] != ENV["APIGEE"]
+    if params[:apigee_key] != ENV[APIGEE]
       render json: status: "Unauthorized" # halts request cycle
     else
       return
