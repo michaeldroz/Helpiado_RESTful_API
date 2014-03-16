@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
   # POST /people
   # POST /people.json
   def create
-    @person = Person.create(person_params, vote_balance: 50) #hard coding initial vote balance. 
+    @person = Person.create(person_params, :vote_balance => 50) #hard coding initial vote balance. 
     if @person.save
       render json: @person, status: :created, location: @person
     else
