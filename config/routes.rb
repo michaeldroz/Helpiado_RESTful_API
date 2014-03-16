@@ -1,4 +1,5 @@
 Helpiado::Application.routes.draw do
+  resources :votes, except: [:new, :edit]
   resources :people, except: [:new, :edit]
   resources :deeds, except: [:new, :edit]
   resources :deeds
