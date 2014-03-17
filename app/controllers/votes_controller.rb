@@ -30,9 +30,9 @@ class VotesController < ApplicationController
   # PATCH/PUT /votes/1
   # PATCH/PUT /votes/1.json
   def update
-    @vote = Vote.find(params[:id])
+    @vote = Vote.find(vote_params[:id])
 
-    if @vote.update(params[:vote])
+    if @vote.update(accumulative_score: + vote_params[:accumulative_score])
       head :no_content
     else
       render json: @vote.errors, status: :unprocessable_entity
@@ -47,4 +47,10 @@ class VotesController < ApplicationController
 
     head :no_content
   end
+
+private 
+def vote_params
+    params.permit(:id, :accumulative_score) 
+end
+
 end
