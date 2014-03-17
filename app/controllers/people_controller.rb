@@ -29,9 +29,9 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
-    @person = Person.find(params[:id])
+    @person = Person.find(person_params[:id])
 
-    if @person.update(params[:person])
+    if @person.update(person_params[:person])
       head :no_content
     else
       render json: @person.errors, status: :unprocessable_entity
@@ -49,6 +49,6 @@ class PeopleController < ApplicationController
 
 private
 def person_params
-	params.permit(:first_name, :last_name, :email_address, :password, :vote_balance)
+	params.permit(:id, :first_name, :last_name, :email_address, :password, :vote_balance)
 end
 end
