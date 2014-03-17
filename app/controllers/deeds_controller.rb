@@ -30,9 +30,9 @@ class DeedsController < ApplicationController
   # PATCH/PUT /deeds/1
   # PATCH/PUT /deeds/1.json
   def update
-    @deed = Deed.find(params[:id])
+    @deed = Deed.find(deed_params[:id])
 
-    if @deed.update(params[:deed])
+    if @deed.update(accumulative_score: + deed_params[:accumulative_score])
       head :no_content
     else
       render json: @deed.errors, status: :unprocessable_entity
@@ -50,7 +50,7 @@ class DeedsController < ApplicationController
 
 private
     def deed_params
-	params.permit(:person_id, :voting, :description, :votes, :recurring)
+      params.permit(:id, :person_id, :voting, :description, :votes, :recurring)
    end
 
 end
