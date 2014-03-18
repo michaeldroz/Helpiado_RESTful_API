@@ -10,7 +10,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @person = Person.find(person_params[:id])
+    @person = Person.find(params[:id])
 
     render json: @person
   end
@@ -29,7 +29,7 @@ class PeopleController < ApplicationController
   # PATCH/PUT /people/1
   # PATCH/PUT /people/1.json
   def update
-    @person = Person.find(person_params[:id])
+    @person = Person.find(params[:id])
 
     if @person.update(person_params)
       head :no_content
