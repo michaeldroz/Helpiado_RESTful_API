@@ -31,7 +31,7 @@ class PeopleController < ApplicationController
   def update
     @person = Person.find(person_params[:id])
 
-    if @person.update(person_params[:person])
+    if @person.update(person_params)
       head :no_content
     else
       render json: @person.errors, status: :unprocessable_entity
@@ -49,6 +49,6 @@ class PeopleController < ApplicationController
 
 private
 def person_params
-	params.permit(:id, :first_name, :last_name, :email_address, :password, :vote_balance)
+	params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password, :vote_balance)
 end
 end
