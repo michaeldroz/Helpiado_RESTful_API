@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-  #Tomorrow to do: Design vote_balance models
   before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   # GET /people
