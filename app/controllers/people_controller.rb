@@ -1,6 +1,6 @@
 class PeopleController < ApplicationController
   #Tomorrow to do: Design vote_balance models
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :set_person, only: [:show, :edit, :update, :destroy, :index]
 
   # GET /people
   # GET /people.json
@@ -12,6 +12,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @people = Person.all
     render json: @person
   end
 
