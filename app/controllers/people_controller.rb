@@ -21,10 +21,10 @@ class PeopleController < ApplicationController
   end  
   
  def create
-    @person = Person.new(person_params.merge(:vote_balance => 50)) #hard coding initial vote balance. 
+    @person = Person.new(person_params) #hard coding initial vote balance. 
     if @person.save
       render json: @person, status: :created, location: @person
-      @vote_balance = VoteBalance.new(:person_id =>@person.id, :vote_balance => 50)
+     # @vote_balance = VoteBalance.new(:person_id =>@person.id, :vote_balance => 50)
     else
       render json: @person.errors, status: :unprocessable_entity
     end
@@ -55,6 +55,6 @@ def set_person
     @person = Person.find(params[:id])
 end
 def person_params
-	params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password, :vote_balance)
+	params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password)
 end
 end
