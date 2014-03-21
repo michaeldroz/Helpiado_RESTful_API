@@ -55,6 +55,7 @@ def set_person
     @person = Person.find(params[:id])
 end
 def person_params
-	params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password)
+	#params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password)
+        params.permit(:id, :first_name, :last_name, :email_address, :password)
 end
 end
