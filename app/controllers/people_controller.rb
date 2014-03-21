@@ -6,14 +6,14 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
      @people = Person.all
-     render json: @person
+     render json: @people
   end
 
   # GET /people/1
   # GET /people/1.json
   def show
     @people = Person.all
-    render json: @person
+    render json: @people
   end
 
   # POST /people
