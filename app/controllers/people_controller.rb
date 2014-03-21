@@ -24,6 +24,7 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params.merge(:vote_balance => 50)) #hard coding initial vote balance. 
     if @person.save
       render json: @person, status: :created, location: @person
+      @vote_balance = VoteBalance.new(:person_id =>@person.id, :vote_balance => 50)
     else
       render json: @person.errors, status: :unprocessable_entity
     end
