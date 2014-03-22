@@ -1,6 +1,6 @@
 Helpiado::Application.routes.draw do
   resources :people, except: [:new, :edit]
-  resources :deeds, except: [:new, :edit] #r
+  resources :deeds, except: [:new, :edit] #
   resources :vote_balances, except: [:new, :edit]
   resources :deed_votes, except: [:new, :edit]  
 # Example of named route that can be invoked with purchase_url(id: product.id)
