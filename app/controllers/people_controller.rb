@@ -14,7 +14,9 @@ class PeopleController < ApplicationController
   # GET /people/1.json
   def show
     @person = Person.find(params[:id])
+    @person_vote_balance = VoteBalance.find(params[:person_id])
     render json: @person
+    render json: @person_vote_balance
     puts "get person from show"
   end
 
