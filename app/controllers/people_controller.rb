@@ -34,7 +34,7 @@ class PeopleController < ApplicationController
     if @person.save
       puts "person created at create"
       render json: @person, status: :created, location: @person
-      @vote_balance = VoteBalance.new(:person_id =>@person.id,:vote_balance =>50)
+      @vote_balance = VoteBalance.new(:person_id =>@person.id,:vote_balance =>50) #this actually worked
       if @vote_balance.save
       puts "vote_balance updated"
        #logginer where the person request is going
