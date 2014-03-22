@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
 
   # GET /people
   # GET /people.json
-  def index
+  def index  #this is where http requests our routed to
      @people = Person.all
      render json: @people
      puts "get people from index"
@@ -13,9 +13,9 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
-    @people = Person.all
-    render json: @people
-    puts "get people from show"
+    @person = Person.find(params[:id])
+    render json: @person
+    puts "get person from show"
   end
 
   # POST /people
