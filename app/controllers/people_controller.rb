@@ -29,13 +29,19 @@ class PeopleController < ApplicationController
      end 
   end  
   
- def create
+ def create  #this is where http post requests go
     @person = Person.new(person_params) #hard coding initial vote balance. 
     if @person.save
       puts "person created at create"
       render json: @person, status: :created, location: @person
+      @vote_balance = VoteBalance.new(:person_id =>@person.id,:vote_balance =>50)
+      if @vote_balance.save
+      puts "vote_balance updated"
        #logginer where the person request is going
      # @vote_balance = VoteBalance.new(:person_id =>@person.id, :vote_balance => 50)
+      else
+       puts "vote_balance FAILED"
+      end 
     else
       render json: @person.errors, status: :unprocessable_entity
     end
