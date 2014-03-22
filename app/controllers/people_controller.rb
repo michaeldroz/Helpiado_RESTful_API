@@ -15,7 +15,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find(params[:id])
     @vote_balance = VoteBalance.find_by(:person_id =>@person.id)
-    format.json { render :json => JSON::parse(@person.to_json).merge(@vote_balance).to_json }
+    render :json => @person.attributes.merge(@vote_balance.attributes)
     #render json: @person
     #render json: @vote_balance
     puts "get person from show"
