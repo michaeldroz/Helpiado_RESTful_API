@@ -7,6 +7,7 @@ class PeopleController < ApplicationController
   def index
      @people = Person.all
      render json: @people
+     puts "get people from index"
   end
 
   # GET /people/1
@@ -14,6 +15,7 @@ class PeopleController < ApplicationController
   def show
     @people = Person.all
     render json: @people
+    puts "get people from show"
   end
 
   # POST /people
