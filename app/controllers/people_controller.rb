@@ -22,6 +22,7 @@ class PeopleController < ApplicationController
      @person = Person.new(person_params)
      if @person.save
        render json: @person, status: :created, location: @person
+       puts "person created at new"  #logging where the person request is going
      else
        render json: @person.errors, status: :unprocessable_entity
      end 
@@ -31,6 +32,7 @@ class PeopleController < ApplicationController
     @person = Person.new(person_params) #hard coding initial vote balance. 
     if @person.save
       render json: @person, status: :created, location: @person
+      puts "person created at create" #logginer where the person request is going
      # @vote_balance = VoteBalance.new(:person_id =>@person.id, :vote_balance => 50)
     else
       render json: @person.errors, status: :unprocessable_entity
