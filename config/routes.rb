@@ -1,7 +1,8 @@
 Helpiado::Application.routes.draw do
   resources :people, except: [:new, :edit]
   resources :deeds, except: [:new, :edit]
-  # Example of named route that can be invoked with purchase_url(id: product.id)
+  resources :vote_balances: except: [:new, :edit]  
+# Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
