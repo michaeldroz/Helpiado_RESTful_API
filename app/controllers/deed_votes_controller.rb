@@ -1,4 +1,7 @@
 class DeedVotesController < ApplicationController
+  before_action :set_voteable, only:(create, update, destory)
+
+
   # GET /deed_votes
   # GET /deed_votes.json
   def index
@@ -47,4 +50,16 @@ class DeedVotesController < ApplicationController
 
     head :no_content
   end
+  
+ private
+ def set_voteable
+   @deed_hash = Deed.find(params[:deed_id])
+   if @deed_hash.voting == 1
+      @voteable = 1
+   else
+      render json: @deed_hash.errors, status: :unprocessable_entity
+   end 
+ end 
+
+
 end
