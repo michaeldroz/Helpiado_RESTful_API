@@ -1,5 +1,5 @@
 class DeedVotesController < ApplicationController
-  before_action :set_voteable, only:[create, update, destory]
+#  before_action :set_voteable, only:[create, update, destory]
 
 
   # GET /deed_votes
