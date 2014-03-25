@@ -84,10 +84,6 @@ end
 def person_params
 	#params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password)
         params.permit(:id, :first_name, :last_name, :email_address, :password)
-end
-
-def person_params_with_vote_balance
-    person_params.merge(vote_balance_attributes: )
 end 
 
 end 
