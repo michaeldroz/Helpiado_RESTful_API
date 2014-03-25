@@ -1,7 +1,7 @@
 class PeopleController < ApplicationController
   #Tomorrow to do: Design vote_balance models
   before_action :set_person, only: [:show, :edit, :update, :destroy]  
-  @person_params_with_vote_balance = person_params.merge(vote_balance_attributes: )
+  @person_params_with_vote_balance = person_params.merge(vote_balance_attributes:) 
   # GET /people
   # GET /people.json
   # How to merge vote_balance for each..probably a do |x| .. 
