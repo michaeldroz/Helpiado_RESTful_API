@@ -38,7 +38,7 @@ class PeopleController < ApplicationController
   
  def create  #this is where http post requests go
     #bechtol's code
-    @person = Person.new(person_params.merge(vote_balance_attributes: {vote_balance: 50}))
+    @person = Person.new(person_params.merge(vote_balances_attributes: {vote_balance: 50}))
     if @person.save
     render json: @person, status: :created, location: @person
     #@person = Person.new(person_params) #hard coding initial vote balance. 
