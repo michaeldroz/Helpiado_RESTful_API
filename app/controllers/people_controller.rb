@@ -1,6 +1,7 @@
 class PeopleController < ApplicationController
   #Tomorrow to do: Design vote_balance models
   before_action :set_person, only: [:show, :edit, :update, :destroy]   
+  @person_params_with_vote_balance = person_params.merge(vote_balances_attributes: {vote_blance: =>50})
   # GET /people
   # GET /people.json  h
   # How to merge vote_balance for each..probably a do |x| .. 
@@ -38,7 +39,7 @@ class PeopleController < ApplicationController
   
  def create  #this is where http post requests go
     #bechtol's code
-    @person = Person.new(person_params.merge(vote_balances_attributes: {vote_balance: 50}))
+    @person = Person.new(person_params_with_vote_balance)
     if @person.save
     render json: @person, status: :created, location: @person
     #@person = Person.new(person_params) #hard coding initial vote balance. 
