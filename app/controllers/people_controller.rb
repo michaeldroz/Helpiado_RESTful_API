@@ -1,8 +1,7 @@
 class PeopleController < ApplicationController
   #Tomorrow to do: Design vote_balance models
   before_action :set_person, only: [:show, :edit, :update, :destroy]   
-  before_action :person_params, only: [:create, :new]
-  person_params_with_vote_balances = person_params.merge(vote_balances_attributes: {vote_balance: 50})
+ 
   # GET /people
   # GET /people.json  h
   # How to merge vote_balance for each..probably a do |x| .. 
@@ -87,7 +86,8 @@ end
 	#params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password)
 #        params.permit(:id, :first_name, :last_name, :email_address, :password)
 #end 
-  def person_params
+  def person_params_with_vote_balance
      params.permit(:id, :first_name, :last_name, :email_address, :password)
+     params.merge(vote_balances_attributes: {vote_balance: 50})
   end
 end 
