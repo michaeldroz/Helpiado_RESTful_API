@@ -1,7 +1,7 @@
 class Person < ActiveRecord::Base
     has_many :deeds, dependent: :destroy
     has_one :vote_balances, dependent: :destroy
-    accepts_nested_attributes_for :vote_balances
+    accepts_nested_attributes_for :vote_balance
   
     #example transaction code
     #person.transaction do 
