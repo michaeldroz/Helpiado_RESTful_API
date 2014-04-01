@@ -39,20 +39,20 @@ class PeopleController < ApplicationController
   
  def create  #this is where http post requests go
     #bechtol's code
-    @person = Person.new(person_params_with_vote_balance)
+   # @person = Person.new(person_params_with_vote_balance)
+   # if @person.save
+   # render json: @person, status: :created, location: @person
+    @person = Person.new(person_params) #hard coding initial vote balance. 
     if @person.save
-    render json: @person, status: :created, location: @person
-    #@person = Person.new(person_params) #hard coding initial vote balance. 
-    #if @person.save
      #move render below @vote_balance 
-    # render json: @person, status: :created, location: @person
+     render json: @person, status: :created, location: @person
      #move vote_balnce to person.save
-     # @vote_balance = VoteBalance.new(:person_id =>@person.id,:vote_balance =>50)
-     # if @vote_balance.save
-     # puts "vote_balance updated"
-     # else
-     #  puts "vote_balance FAILED"
-     # end 
+      @vote_balance = VoteBalance.new(:person_id =>@person.id,:vote_balance =>50)
+      if @vote_balance.save
+      puts "vote_balance updated"
+      else
+       puts "vote_balance FAILED"
+      end 
     else
       render json: @person.errors, status: :unprocessable_entity
     end
@@ -82,10 +82,10 @@ private
 def set_person
     @person = Person.find(params[:id])
 end
-#def person_params
+def person_params
 	#params.require(:person).permit(:id, :first_name, :last_name, :email_address, :password)
-#        params.permit(:id, :first_name, :last_name, :email_address, :password)
-#end 
+        params.permit(:id, :first_name, :last_name, :email_address, :password)
+end 
   def person_params_with_vote_balance
     params.permit(:id, :first_name, :last_name, :email_address, :password).merge(vote_balances_attributes: {vote_balance: 50})
   end
