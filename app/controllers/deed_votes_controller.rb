@@ -1,6 +1,6 @@
 class DeedVotesController < ApplicationController
 before_action :check_voting, only:[:create, :update]
-
+before_action :check_vote_balance, only:[:create, :update]
 
   # GET /deed_votes
   # GET /deed_votes.json
@@ -59,6 +59,14 @@ before_action :check_voting, only:[:create, :update]
       render json: @deed_hash.errors, status: :unprocessable_entity
    end 
  end 
+
+def check_vote_balance
+  @vote_balance = VoteBalance.find(params[:person_id])
+  if @vote_balance.vote_balance >= params[:votes]
+  else 
+    render json: @vote_balance.errors, status: :unprocessable_entity
+  end
+end 
 
  def deed_params
  params.permit(:deed_id, :person_id, :votes)
