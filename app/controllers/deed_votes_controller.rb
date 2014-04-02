@@ -1,5 +1,5 @@
 class DeedVotesController < ApplicationController
-before_action :check_voting, only:[create, update, destory]
+before_action :check_voting, only:[:create, :update]
 
 
   # GET /deed_votes
