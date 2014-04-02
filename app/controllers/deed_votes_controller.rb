@@ -1,5 +1,5 @@
 class DeedVotesController < ApplicationController
-#  before_action :set_voteable, only:[create, update, destory]
+before_action :check_voting, only:[create, update, destory]
 
 
   # GET /deed_votes
@@ -21,7 +21,7 @@ class DeedVotesController < ApplicationController
   # POST /deed_votes
   # POST /deed_votes.json
   def create
-    @deed_vote = DeedVote.new(params[:deed_vote])
+    @deed_vote = DeedVote.new(deed_params)
 
     if @deed_vote.save
       render json: @deed_vote, status: :created, location: @deed_vote
@@ -52,7 +52,7 @@ class DeedVotesController < ApplicationController
   end
   
  private
- def set_voteable
+ def check_voting
    @deed_hash = Deed.find(params[:deed_id])
    if @deed_hash.voting == 1
       @voteable = 1
@@ -61,5 +61,8 @@ class DeedVotesController < ApplicationController
    end 
  end 
 
+ def deed_params
+  permit(:deed_id, :person_id, :votes)
+end
 
 end
