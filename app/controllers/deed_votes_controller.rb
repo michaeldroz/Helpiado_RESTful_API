@@ -25,7 +25,7 @@ before_action :check_vote_balance, only:[:create, :update]
     if @deed_vote.save
       render json: @deed_vote, status: :created, location: @deed_vote
       @update_vote_balance = VoteBalance.find_by(:person_id => params[:person_id])
-      if @update_vote_balance.update(votes: @update_vote_balance.votes - params[:votes])
+      if @update_vote_balance.update(votes: @update_vote_balance[:votes] - params[:votes])
          else
           puts "error error error"
          end 
