@@ -61,7 +61,7 @@ before_action :check_vote_balance, only:[:create, :update]
  end 
 
 def check_vote_balance
-  @vote_balance = VoteBalance.find(params[:person_id])
+  @vote_balance = VoteBalances.find(params[:person_id])
   if @vote_balance.vote_balance >= params[:votes]
   else 
     render json: @vote_balance.errors, status: :unprocessable_entity
