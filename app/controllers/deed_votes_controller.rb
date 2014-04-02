@@ -68,7 +68,7 @@ before_action :check_voting, only:[:create, :update]
  end 
 
  def deed_params
-  permit(:deed_id, :person_id, :votes)
+ params.permit(:deed_id, :person_id, :votes)
 end
 
 end
