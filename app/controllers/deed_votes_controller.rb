@@ -54,7 +54,7 @@ before_action :check_voting, only:[:create, :update]
  private
  def check_voting
    @deed_hash = Deed.find(params[:deed_id])
-   put "Voting =" @deed_hash.voting
+   put "Voting #{deed_hash['voting']}"
     if @deed_hash.voting == 1
       @voteable = 1
    else
