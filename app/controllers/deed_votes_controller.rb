@@ -21,13 +21,10 @@ before_action :check_voting, only:[:create, :update]
   # POST /deed_votes
   # POST /deed_votes.json
   def create
-    @deed_vote = DeedVote.new(deed_params)
-    puts "Right before if @deed_vote.save" 
+    @deed_vote = DeedVote.new(deed_params) 
     if @deed_vote.save
-    puts "Inside if @deed_vote.save"
       render json: @deed_vote, status: :created, location: @deed_vote
     else
-     puts "inside else...something went wrong"
       render json: @deed_vote.errors, status: :unprocessable_entity
     end
   end
