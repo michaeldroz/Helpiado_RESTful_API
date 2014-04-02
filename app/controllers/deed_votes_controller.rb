@@ -54,7 +54,8 @@ before_action :check_voting, only:[:create, :update]
  private
  def check_voting
    @deed_hash = Deed.find(params[:deed_id])
-   if @deed_hash.voting == 1
+   put "Voting =" @deed_hash.voting
+    if @deed_hash.voting == 1
       @voteable = 1
    else
       render json: @deed_hash.errors, status: :unprocessable_entity
