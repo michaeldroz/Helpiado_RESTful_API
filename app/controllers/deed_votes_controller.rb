@@ -54,11 +54,8 @@ before_action :check_voting, only:[:create, :update]
  def check_voting
    
    @deed_hash = Deed.find(params[:deed_id])
-   #puts "Voting #{deed_hash['voting']}"
     if @deed_hash.voting == true
-      puts "Inside the if statement which means votable is 1"
    else
-      puts "Inside the else which means voteable not 1"
       render json: @deed_hash.errors, status: :unprocessable_entity
    end 
  end 
