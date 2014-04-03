@@ -51,7 +51,7 @@ class DeedsController < ApplicationController
 
 private
     def deed_params
-      params.permit(:id, :person_id, :voting, :description, :votes, :recurring, :accumulative_votes)
+      params.permit(:id, :person_id, :voting, :description, :votes, :recurring, :accumulative_votes, :deed_id)
    end
 
 end
