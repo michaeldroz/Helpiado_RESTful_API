@@ -11,7 +11,7 @@ class DeedsController < ApplicationController
   # GET /deeds/1.json
   def show
     @deed = Deed.find(params[:id])
-    @deed_score = DeedVote.group('votes').sum(:votes, :conditions =>['deed_id = ?', params[:id]])
+    @deed_score = DeedVote.group('deed_id').sum(:votes, :conditions =>['deed_id = ?', params[:id]])
     render :json => @deed.attributes.merge(@deed_score)
     #render json: @deed
   end
